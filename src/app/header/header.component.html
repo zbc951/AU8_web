@@ -37,7 +37,7 @@
         </li>
       </ng-container>
       <ng-template #notlogin>
-        <li>
+        <li class="inputBox">
           <!-- (ngSubmit)="login()" -->
           <form
             class="login-form flex"
@@ -65,6 +65,10 @@
             <button class="g-2" [disabled]="isMaintain">
               {{ "LOGIN.TITLE" | translate }}
             </button>
+            <button class="signupBtn" [disabled]="isMaintain">
+              <span></span>
+              註冊
+            </button>
           </form>
         </li>
         <li
@@ -72,8 +76,9 @@
           [class.disabled]="isMaintain"
           (click)="openRegister()"
         >
-          <i class="icon"></i>
-          {{ "REGISTER.TITLE" | translate }}
+          <i class="forget"></i>
+          <!-- {{ "REGISTER.TITLE" | translate }} -->
+          忘記密碼
         </li>
       </ng-template>
       <li>

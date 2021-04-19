@@ -1,5 +1,6 @@
 header {
-  background: #3d4cce;
+  background: url('../../assets/img/new/headerBG.png') no-repeat;
+  background-size: 100%;
   font-weight: bold;
   box-shadow: 0 0 13px 2px #dbdef4;
   position: relative;
@@ -62,15 +63,23 @@ option {
     position: relative;
     line-height: 40px;
     padding: 0 20px;
+    border-right: solid 1px #fff7d2;
+
+    &.inputBox {
+      padding-right: 10px;
+    }
 
     &.clickable:hover {
       background-color: #0068ff;
     }
 
-    & > .icon {
+    & > .forget {
       display: inline-block;
+      width: 19px;
+      height: 19px;
       vertical-align: middle;
-      margin: 0 10px 0 0;
+      margin-bottom: 2px;
+      background: url('../../assets/img/new/question.png') no-repeat;
     }
 
     .bubble {
@@ -140,7 +149,7 @@ option {
       height: 40px;
       top: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.3);
+      background: #a27a2f;
     }
   }
 }
@@ -154,57 +163,73 @@ option {
 
     i {
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 11px;
+      height: 15px;
       top: 12px;
-      left: 18px;
+      left: 14px;
     }
   }
 
   input {
-    font-size: 13px;
+    font-size: 15px;
     width: 152px;
-    height: 30px;
-    padding: 0 5px 0 30px;
-    margin: 0 9px;
+    height: 29px;
+    padding: 0 5px 0 25px;
+    margin: 0 4px;
     color: #333;
     border-radius: 3px;
 
     &::placeholder {
-      color: #ccc;
+      color: #797979;
     }
   }
 
   .id {
     i {
-      background: url(/nt1_web/assets/img/id.svg) no-repeat;
+      background: url('../../assets/img/new/inputIC.png') no-repeat;
     }
   }
 
   .pwd {
     input {
-      padding: 0 22px 0 30px;
+      padding: 0 22px 0 25px;
+      margin-right: 10px;
     }
 
     .pwd {
-      background: url(/nt1_web/assets/img/pwd.svg) no-repeat;
-    }
-
-    .question {
-      background: url(/nt1_web/assets/img/question.svg) no-repeat;
-      left: unset;
-      right: 16px;
+      background: url('../../assets/img/new/inputIC.png') no-repeat;
+      background-position-y: 100%;
     }
   }
 
   button {
-    height: 30px;
+    height: 28px;
     line-height: 28px;
-    font-size: 14px;
-    padding: 0 16px;
+    font-size: 15px;
+    padding: 0 18px;
     // background: #e11515;
     // border: 1px solid #f56d5c;
     border-radius: 3px;
+    background: linear-gradient(to top,#ddb78c 0%,#ffe1a8 30%,#fff8ba 50%,#f0d9a3 95%);
+    border: solid 1px #f0e4ac;
+    color: #301a12;
+
+    &.signupBtn {
+      background: linear-gradient(to top,#2a8a4b 0%,#6dd191 55%,#54a874 99%);
+      color: #fff;
+      margin-left: 8px;
+      padding: 0px 9px 0px 8px;
+
+      span {
+        display: inline-block;
+        width: 12px;
+        height: 14px;
+        background: url('../../assets/img/new/signupIC.png') no-repeat;
+        margin-right: 4px;
+        transform: translateY(1px);
+      }
+    }
+                                                                                                                                                                                       
 
     &:active {
       opacity: 0.8;
@@ -219,8 +244,8 @@ option {
 
 .game-nav {
   height: 80px;
-  font-size: 16px;
-  color: #333;
+  font-size: 18px;
+  color: #996c33;
   background: #fff;
 
   & > div {
@@ -229,10 +254,11 @@ option {
 
   li {
     position: relative;
-    line-height: 80px;
-    padding: 0 30px;
+    line-height: 76px;
+    padding: 0 27px;
     order: 10;
     letter-spacing: 1px;
+    border-bottom: solid 4px transparent;
 
     @extend .clickable;
 
@@ -240,32 +266,8 @@ option {
       padding: 0 10px 0 30px;
     }
 
-    &:hover {
-      &:before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 4px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background: #4a59ed;
-      }
-      &:after {
-        content: "";
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 7.5px 10px 7.5px;
-        border-color: transparent transparent #4a5bed transparent;
-        position: absolute;
-        bottom: 0;
-        left: calc(50% - 7.5px);
-      }
-    }
-
-    &.active {
-      color: #4a59ed;
+    &:hover,&:active,&.active {
+      border-color: #c7a16e;
     }
 
     &.home,
@@ -307,7 +309,7 @@ option {
 .overlay-game-menue-wrap {
   width: 100%;
   // height: 100vh;
-  top: calc(40px + 80px);
+  top: calc(40px + 81px);
   left: 0;
   // background: rgba(0, 0, 0, 0.3);
   z-index: 1;
