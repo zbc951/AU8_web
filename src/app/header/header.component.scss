@@ -1,0 +1,372 @@
+header {
+  background: #3d4cce;
+  font-weight: bold;
+  box-shadow: 0 0 13px 2px #dbdef4;
+  position: relative;
+}
+
+select {
+  border: none;
+  background: none;
+}
+
+option {
+  color: #333;
+  // width: 118px;
+  // height: 35px;
+}
+
+.center-wrap.top {
+  justify-content: space-between;
+}
+
+.brad {
+  line-height: 40px;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.user {
+  // display: inline-flex;
+  // height: 53px;
+  height: 40px;
+  justify-content: flex-end;
+  font-size: 14px;
+
+  letter-spacing: 1px;
+  color: #fff;
+
+  .lv {
+    max-width: 194px;
+    padding: 0 15px 0 0;
+    color: #00ddff;
+  }
+
+  span.money {
+    color: #ffff00;
+  }
+
+  .arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3px 3px 0 3px;
+    border-color: #ffff00 transparent transparent transparent;
+    vertical-align: middle;
+    position: relative;
+    left: 9px;
+  }
+
+  & > li {
+    position: relative;
+    line-height: 40px;
+    padding: 0 20px;
+
+    &.clickable:hover {
+      background-color: #0068ff;
+    }
+
+    & > .icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 10px 0 0;
+    }
+
+    .bubble {
+      position: absolute;
+      height: 18px;
+      text-align: center;
+      min-width: 18px;
+      line-height: 15px;
+      font-size: 12px;
+      top: 3px;
+      left: 37px;
+      padding: 0 2px;
+      border-radius: 9px;
+      border: 1px solid #fff;
+      color: #fff;
+      background: #ed1c24;
+    }
+
+    &.member {
+      .icon {
+        width: 19px;
+        height: 22px;
+        background: url(/nt1_web/assets/img/member.svg) no-repeat;
+      }
+    }
+
+    &.mail {
+      .icon {
+        width: 23px;
+        height: 18px;
+        background: url(/nt1_web/assets/img/letter.svg) no-repeat;
+      }
+    }
+
+    &.logout {
+      .icon {
+        width: 22px;
+        height: 22px;
+        background: url(/nt1_web/assets/img/signout.svg) no-repeat;
+      }
+    }
+
+    &.register {
+      &.disabled {
+        cursor: not-allowed;
+      }
+
+      .icon {
+        width: 27px;
+        height: 27px;
+        position: relative;
+        top: -2px;
+        background: url(/nt1_web/assets/img/register.svg) no-repeat;
+      }
+    }
+
+    // &:active,
+    &.active {
+      color: #000;
+      @extend .g-1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 40px;
+      top: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.login-form {
+  align-items: center;
+
+  .input-wrap {
+    // outline: 1px solid pink;
+    position: relative;
+
+    i {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 12px;
+      left: 18px;
+    }
+  }
+
+  input {
+    font-size: 13px;
+    width: 152px;
+    height: 30px;
+    padding: 0 5px 0 30px;
+    margin: 0 9px;
+    color: #333;
+    border-radius: 3px;
+
+    &::placeholder {
+      color: #ccc;
+    }
+  }
+
+  .id {
+    i {
+      background: url(/nt1_web/assets/img/id.svg) no-repeat;
+    }
+  }
+
+  .pwd {
+    input {
+      padding: 0 22px 0 30px;
+    }
+
+    .pwd {
+      background: url(/nt1_web/assets/img/pwd.svg) no-repeat;
+    }
+
+    .question {
+      background: url(/nt1_web/assets/img/question.svg) no-repeat;
+      left: unset;
+      right: 16px;
+    }
+  }
+
+  button {
+    height: 30px;
+    line-height: 28px;
+    font-size: 14px;
+    padding: 0 16px;
+    // background: #e11515;
+    // border: 1px solid #f56d5c;
+    border-radius: 3px;
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+}
+
+.logo {
+  height: 43px;
+  align-self: center;
+}
+
+.game-nav {
+  height: 80px;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+
+  & > div {
+    justify-content: space-between;
+  }
+
+  li {
+    position: relative;
+    line-height: 80px;
+    padding: 0 30px;
+    order: 10;
+    letter-spacing: 1px;
+
+    @extend .clickable;
+
+    &:last-child {
+      padding: 0 10px 0 30px;
+    }
+
+    &:hover {
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: #4a59ed;
+      }
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 7.5px 10px 7.5px;
+        border-color: transparent transparent #4a5bed transparent;
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 7.5px);
+      }
+    }
+
+    &.active {
+      color: #4a59ed;
+    }
+
+    &.home,
+    &.sport {
+      order: 1;
+    }
+
+    &.live {
+      order: 2;
+    }
+
+    &.slot {
+      order: 3;
+    }
+
+    &.lottery {
+      order: 4;
+    }
+
+    &.board {
+      order: 6;
+    }
+
+    &.fishing {
+      order: 5;
+    }
+  }
+}
+
+.marquee-wrap {
+  background: #fff;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  // & > .center-wrap {
+  //   cursor: pointer;
+  // }
+}
+
+.overlay-game-menue-wrap {
+  width: 100%;
+  // height: 100vh;
+  top: calc(40px + 80px);
+  left: 0;
+  // background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.overlay-game-menue {
+  border-top: 1px solid #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 170px;
+  background: #fff;
+  position: relative;
+  top: -1px;
+  // outline: 1px solid pink;
+
+  ul {
+    // justify-content: center;
+    transition: transform 500ms ease 0s;
+  }
+
+  li {
+    // min-width: 128px;
+    // width: 220px;
+    // height: 96px;
+    position: relative;
+    text-align: center;
+
+    // outline: 1px solid pink;
+    @extend .clickable;
+
+    .gamePhoto {
+      min-width: 220px;
+      height: 96px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .container {
+    width: 1320px;
+    overflow: hidden;
+  }
+}
+
+.games {
+  display: flex;
+  align-items: center;
+
+  i {
+    width: 15px;
+    height: 30px;
+    background: url(/nt1_web/assets/img/direction1.svg) no-repeat center center;
+
+    &:nth-child(3) {
+      transform: rotate(180deg);
+    }
+
+    @extend .clickable;
+  }
+}

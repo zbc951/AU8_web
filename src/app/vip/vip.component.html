@@ -1,0 +1,326 @@
+<div class="main panel-style" *ngIf="type === StatusType.CURRENT">
+  <div class="current flex">
+    <div class="medal">
+      <div>
+        <p>{{ mine?.name }}</p>
+      </div>
+    </div>
+    <div>
+      <p class="lv">{{ "VIP.current_lv" | translate }} : {{ mine?.name }}</p>
+      <p>
+        <span class="deposit"
+          >{{ "VIP.deposit1" | translate }} : ${{ mine2?.total_deposit }}</span
+        >&#9;
+        <span>{{ "VIP.amount" | translate }} : ${{ mine2?.total_bet }}</span>
+      </p>
+    </div>
+    <!-- <p class="chk-detail">{{ "VIP.chk_vip_detail" | translate }}</p> -->
+  </div>
+  <div class="graph">
+    <ul class="text">
+      <li>{{ "VIP.DETAIL.LEVEL.0" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.1" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.2" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.3" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.4" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.5" | translate }}</li>
+    </ul>
+    <div class="bar">
+      <!-- <li *ngFor="let item of levelBar" [ngClass]="{ cur: item }"></li> -->
+      <div class="bar-cnt" [style.width.%]="barPercent"></div>
+    </div>
+  </div>
+  <div class="next">
+    <p class="next-level">
+      {{ "VIP.next" | translate }}:<i></i>{{ next?.name }}
+    </p>
+    <div class="bar_row">
+      {{ "VIP.deposit1" | translate }}
+      <app-experience-bar
+        [goal]="userData.goalAmount"
+        [cur]="userData.curAmount"
+        [width]="400"
+        [height]="8"
+      >
+      </app-experience-bar>
+      <p>
+        {{ "VIP.need_deposit_about" | translate }} ${{
+          math.abs(next?.upgradeByDeposit - mine2?.total_deposit)
+        }}
+      </p>
+    </div>
+    <div class="bar_row">
+      {{ "VIP.amount" | translate }}
+      <app-experience-bar
+        [goal]="userData.goalPoint"
+        [cur]="userData.curPoint"
+        [width]="400"
+        [height]="8"
+      >
+      </app-experience-bar>
+      <p>
+        {{ "VIP.need_amount_about" | translate }} ${{
+          userData.goalPoint - userData.curPoint
+        }}
+      </p>
+      <button class="chk" (click)="openDetail()">
+        {{ "VIP.chk_amount" | translate }}
+      </button>
+      <button class="orange_btn">{{ "VIP.apply_upgrade" | translate }}</button>
+    </div>
+  </div>
+  <div class="enjoy">
+    <div class="enjoy-title">
+      {{ mine?.name }} {{ "VIP.enjoy" | translate }}
+    </div>
+    <ul>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.limit-withdraw" | translate }}</p>
+        <p class="num">200</p>
+      </li>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.hight-withdraw" | translate }}</p>
+        <p class="num">200</p>
+      </li>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.LEVEL-UP" | translate }}</p>
+        <p class="num">200</p>
+      </li>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.BIRTH" | translate }}</p>
+        <p class="num">200</p>
+      </li>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.MONTH" | translate }}</p>
+        <p class="num">200</p>
+      </li>
+    </ul>
+    <button class="chk more" (click)="type = StatusType.DETAIL">
+      {{ "VIP.more" | translate }}
+    </button>
+  </div>
+</div>
+<div class="main panel-style detail" *ngIf="type === StatusType.DETAIL">
+  <div class="detail-title">
+    <i class="arrow" (click)="type = StatusType.CURRENT"></i>
+    {{ "VIP.DETAIL.TITLE" | translate }}
+  </div>
+  <div class="cards">
+    <i class="arrow" (click)="partnerL()"></i>
+    <div style="overflow: hidden">
+      <ul #partnersList>
+        <li *ngFor="let item of vipLevel; let i = index">
+          <div class="card-li" [ngClass]="{ cur: i === userData.level }">
+            <div class="medal">
+              <div>
+                <p>隴隴</p>
+              </div>
+            </div>
+            <div class="content">
+              <div>
+                <p class="text">{{ "VIP.deposit" | translate }}</p>
+                <p class="num">1000</p>
+              </div>
+              <div>
+                <p class="text">{{ "VIP.serial" | translate }}</p>
+                <p class="num">5000</p>
+              </div>
+              <div>
+                <p class="text">{{ "VIP.stay-three" | translate }}</p>
+                <p class="num">10000</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <i class="arrow next_btn" (click)="partnerR()"></i>
+  </div>
+  <div class="condition-title">
+    {{ "VIP.DETAIL.CONDITION.TITLE" | translate }}
+  </div>
+  <ul class="grid-table">
+    <li class="head-li">
+      <div class="head"></div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.0" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.1" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.2" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.3" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.4" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.5" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.6" | translate }}</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.CONDITION.TOTAL" | translate }}</div>
+      <div>{{ "VIP.DETAIL.CONDITION.NEW" | translate }}</div>
+      <div>100,000</div>
+      <div>0.38%</div>
+      <div>0.40%</div>
+      <div>0.45%</div>
+      <div>0.45%</div>
+      <div>{{ "VIP.DETAIL.CONDITION.SPCIAL" | translate }}</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.CONDITION.UP" | translate }}</div>
+      <div>{{ "VIP.DETAIL.CONDITION.NEW" | translate }}</div>
+      <div>200,000</div>
+      <div>0.35%</div>
+      <div>0.50%</div>
+      <div>0.55%</div>
+      <div>0.55%</div>
+      <div>{{ "VIP.DETAIL.CONDITION.SPCIAL" | translate }}</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.CONDITION.STAY" | translate }}</div>
+      <div>{{ "VIP.DETAIL.CONDITION.NEW" | translate }}</div>
+      <div>100,000</div>
+      <div>0.38%</div>
+      <div>0.40%</div>
+      <div>0.45%</div>
+      <div>0.45%</div>
+      <div>{{ "VIP.DETAIL.CONDITION.SPCIAL" | translate }}</div>
+    </li>
+  </ul>
+  <hr />
+  <div class="water-title">
+    {{ "VIP.DETAIL.WATER.TITLE" | translate }}
+  </div>
+  <ul class="grid-table">
+    <li class="head-li">
+      <div class="head"></div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.0" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.1" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.2" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.3" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.4" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.5" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.6" | translate }}</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.WATER.FISH" | translate }}</div>
+      <div>0.3%</div>
+      <div>0.4%</div>
+      <div>0.5%</div>
+      <div>0.6%</div>
+      <div>0.7%</div>
+      <div>0.8%</div>
+      <div>1.0%</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.WATER.LIVE" | translate }}</div>
+      <div>0.2%</div>
+      <div>0.25%</div>
+      <div>0.3%</div>
+      <div>0.4%</div>
+      <div>0.5%</div>
+      <div>0.6%</div>
+      <div>0.7%</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.WATER.SPORT-LIVE" | translate }}</div>
+      <div>0.1%</div>
+      <div>0.15%</div>
+      <div>0.2%</div>
+      <div>0.2%</div>
+      <div>0.3%</div>
+      <div>0.4%</div>
+      <div>0.5%</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.WATER.LOTTO" | translate }}</div>
+      <div>0.1%</div>
+      <div>0.25%</div>
+      <div>0.3%</div>
+      <div>0.4%</div>
+      <div>0.5%</div>
+      <div>0.6%</div>
+      <div>0.7%</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.WATER.SPORT" | translate }}</div>
+      <div>0.1%</div>
+      <div>0.15%</div>
+      <div>0.2%</div>
+      <div>0.3%</div>
+      <div>0.4%</div>
+      <div>0.5%</div>
+      <div>0.6%</div>
+    </li>
+  </ul>
+  <hr />
+  <div class="discount-title">
+    {{ "VIP.DETAIL.DISCOUNT.TITLE" | translate }}
+  </div>
+  <ul class="grid-table">
+    <li class="head-li">
+      <div class="head"></div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.0" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.1" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.2" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.3" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.4" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.5" | translate }}</div>
+      <div class="head">{{ "VIP.DETAIL.LEVEL.6" | translate }}</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.DISCOUNT.DAILY-LIMIT" | translate }}</div>
+      <div>300.000</div>
+      <div>300.000</div>
+      <div>500.000</div>
+      <div>800.000</div>
+      <div>1,000.000</div>
+      <div>2,000.000</div>
+      <div>3,000.000</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.DISCOUNT.UP" | translate }}</div>
+      <div>X</div>
+      <div>888</div>
+      <div>1688</div>
+      <div>8,888</div>
+      <div>12,888</div>
+      <div>18,888</div>
+      <div>58,888</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.DISCOUNT.STAY" | translate }}</div>
+      <div>X</div>
+      <div>588</div>
+      <div>888</div>
+      <div>2,888</div>
+      <div>5,888</div>
+      <div>8,888</div>
+      <div>12,888</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.DISCOUNT.BIRTH" | translate }}</div>
+      <div>X</div>
+      <div>388</div>
+      <div>888</div>
+      <div>1,888</div>
+      <div>5,888</div>
+      <div>8,888</div>
+      <div>16,888</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.DISCOUNT.THREE" | translate }}</div>
+      <div>X</div>
+      <div>388</div>
+      <div>588</div>
+      <div>888</div>
+      <div>1,888</div>
+      <div>3,888</div>
+      <div>5,888</div>
+    </li>
+    <li>
+      <div>{{ "VIP.DETAIL.DISCOUNT.WEEK" | translate }}</div>
+      <div>{{ "VIP.DETAIL.NONE" | translate }}</div>
+      <div>{{ "VIP.DETAIL.NONE" | translate }}</div>
+      <div>3,888</div>
+      <div>5,888</div>
+      <div>8,888</div>
+      <div>16,888</div>
+      <div>28,888</div>
+    </li>
+  </ul>
+</div>

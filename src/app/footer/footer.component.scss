@@ -1,0 +1,35 @@
+footer {
+  // padding: 10px 0 0 0;
+
+  height: 90px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #333;
+}
+
+nav {
+  height: 36px;
+  line-height: 36px;
+
+  li {
+    &:not(:last-child) {
+      margin: 0 52px 0 0;
+    }
+  }
+
+  .pright {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.footer-site {
+  padding: 15px 0;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+  color: #666666;
+  background: #e6e6e6;
+}

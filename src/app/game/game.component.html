@@ -1,0 +1,80 @@
+<div class="game relative">
+  <div class="game_ad">
+    <div
+      class="ad_content"
+      *ngIf="
+        gameType.url !== AppRoutes.FISH && gameType.url !== AppRoutes.BOARD
+      "
+    >
+      <img class="photo" src="{{ gameType.adPhoto }}" alt="" />
+      <div class="text_content">
+        <div class="title">
+          <p class="title_big">{{ gameType.title_big }}</p>
+          <p class="title_small">{{ gameType.title_small }}</p>
+        </div>
+        <p class="discription">
+          {{ gameType.discription }}
+        </p>
+
+        <div
+          class="btn_group"
+          *ngIf="
+            gameType.url !== AppRoutes.FISH && gameType.url !== AppRoutes.BOARD
+          "
+        >
+          <button
+            (click)="partnerL()"
+            class="pre_btn"
+            *ngIf="showItems.length > itemsPerpage"
+          >
+            <img src="/nt1_web/assets/img/arrow_w.svg" alt="" class="arrow" />
+          </button>
+          <div class="list-wrap">
+            <ul class="list" #partnersList>
+              <li class="page" *ngFor="let i of itemInRowRange">
+                <ul>
+                  <li
+                    class="item"
+                    *ngFor="
+                      let item of showItems
+                        | slice
+                          : i * itemsPerpage
+                          : i * itemsPerpage + itemsPerpage
+                    "
+                    (click)="click(item)"
+                  >
+                    <!-- *ngIf="item.maintain" -->
+                    <app-maintain-tip [item]="item"></app-maintain-tip>
+                    <img [src]="item.imageUrl" alt="" />
+                    <p>{{ item.name }}</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <button
+            (click)="partnerR()"
+            class="next_btn"
+            *ngIf="showItems.length > itemsPerpage"
+          >
+            <img src="/nt1_web/assets/img/arrow_w.svg" alt="" class="arrow" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="marquee-wrap"
+    [class.static]="
+      gameType.url == AppRoutes.FISH || gameType.url == AppRoutes.BOARD
+    "
+  >
+    <app-announcement></app-announcement>
+  </div>
+</div>
+<div
+  class="center-wrap"
+  *ngIf="gameType.url == AppRoutes.FISH || gameType.url == AppRoutes.BOARD"
+>
+  <app-game-list [showItems]="showItems"></app-game-list>
+</div>

@@ -1,0 +1,117 @@
+<!-- <div class="marquee-wrap relative"> -->
+<!-- <div class="center-wrap marquee-wrap" (click)="goLetter()"> -->
+<div class="center-wrap marquee-wrap">
+  <app-announcement></app-announcement>
+</div>
+<!-- </div> -->
+<div class="center-wrap">
+  <aside class="panel-style">
+    <div class="info flex">
+      <div>
+        <p class="account">
+          {{ user.account }}<span class="lv">{{ user.lv }} </span>
+        </p>
+        <p class="days">
+          {{ "JOIN_DAYS" | translate: { days: user.survival_day } }}
+        </p>
+        <ul class="quick flex">
+          <li (click)="goPage(AppRoutes.DEPOSIT)">
+            <p [ngClass]="{ cur: path === AppRoutes.DEPOSIT }">
+              {{ "NEWBIE.DEPOSIT.TITLE" | translate | slice: 0:1 }}
+            </p>
+            <p>{{ "NEWBIE.DEPOSIT.TITLE" | translate }}</p>
+          </li>
+          <li (click)="goPage(AppRoutes.TRANSFER)">
+            <p [ngClass]="{ cur: path === AppRoutes.TRANSFER }">
+              {{ "NEWBIE.TRANSFER.TITLE" | translate | slice: 0:1 }}
+            </p>
+            <p>{{ "NEWBIE.TRANSFER.TITLE" | translate }}</p>
+          </li>
+          <li (click)="goPage(AppRoutes.WITHDRAWAL)">
+            <p [ngClass]="{ cur: path === AppRoutes.WITHDRAWAL }">
+              {{ "NEWBIE.WITHDRAW.TITLE" | translate | slice: 0:1 }}
+            </p>
+            <p>{{ "NEWBIE.WITHDRAW.TITLE" | translate }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ul class="nav">
+      <li
+        class="user"
+        [class.active]="path == AppRoutes.USER_INFO"
+        (click)="goPage(AppRoutes.USER_INFO)"
+      >
+        <i></i>{{ "MEMBER_NAV.INFO" | translate }}
+      </li>
+      <li
+        class="vip"
+        [class.active]="path == AppRoutes.VIP"
+        (click)="goPage(AppRoutes.VIP)"
+      >
+        <i></i>{{ "MEMBER_NAV.VIP" | translate }}
+      </li>
+      <li
+        class="my-wallet"
+        [class.active]="path == AppRoutes.MY_WALLET"
+        (click)="goPage(AppRoutes.MY_WALLET)"
+      >
+        <i></i>{{ "MEMBER_NAV.MY_WALLET" | translate }}
+      </li>
+      <li
+        class="bank"
+        [class.active]="path == AppRoutes.BANK_CARD"
+        (click)="goPage(AppRoutes.BANK_CARD)"
+      >
+        <i></i>{{ "MEMBER_NAV.BANK" | translate }}
+      </li>
+      <li
+        class="trans-log"
+        [class.active]="path == AppRoutes.REVIEW_MAIN"
+        (click)="goPage(AppRoutes.REVIEW_MAIN)"
+      >
+        <i></i>{{ "MEMBER_NAV.TRANSFER_LOG" | translate }}
+      </li>
+      <li
+        class="bet-log"
+        [class.active]="path == AppRoutes.BET_LOG"
+        (click)="goPage(AppRoutes.BET_LOG)"
+      >
+        <i></i>{{ "MEMBER_NAV.BET_LOG" | translate }}
+      </li>
+      <li
+        class="quest"
+        [class.active]="path == AppRoutes.OLD_QUEST_CENTER"
+        (click)="goPage(AppRoutes.OLD_QUEST_CENTER)"
+      >
+        <i></i>{{ "MEMBER_QUEST.APPLY_TAB" | translate }}
+      </li>
+      <li
+        class="letters"
+        [class.active]="path == AppRoutes.LETTER"
+        (click)="goPage(AppRoutes.LETTER)"
+      >
+        <i></i>{{ "LETTER.TITLE" | translate }}
+        <i class="bubble" *ngIf="unread">{{ unread }}</i>
+      </li>
+    </ul>
+  </aside>
+  <section [ngSwitch]="path">
+    <app-user-info *ngSwitchCase="AppRoutes.USER_INFO"></app-user-info>
+    <app-vip *ngSwitchCase="AppRoutes.VIP"></app-vip>
+    <app-transfer *ngSwitchCase="AppRoutes.TRANSFER"></app-transfer>
+    <app-deposit *ngSwitchCase="AppRoutes.DEPOSIT"></app-deposit>
+    <app-bank-card *ngSwitchCase="AppRoutes.BANK_CARD"></app-bank-card>
+    <app-withdraw *ngSwitchCase="AppRoutes.WITHDRAWAL"></app-withdraw>
+    <app-letter *ngSwitchCase="AppRoutes.LETTER"></app-letter>
+    <app-letter-detail
+      *ngSwitchCase="AppRoutes.LETTER_DETAIL"
+    ></app-letter-detail>
+    <app-my-wallet *ngSwitchCase="AppRoutes.MY_WALLET"></app-my-wallet>
+    <app-review-main *ngSwitchCase="AppRoutes.REVIEW_MAIN"></app-review-main>
+    <app-bet-log *ngSwitchCase="AppRoutes.BET_LOG"></app-bet-log>
+    <app-old-quest-center
+      *ngSwitchCase="AppRoutes.OLD_QUEST_CENTER"
+    ></app-old-quest-center>
+  </section>
+</div>

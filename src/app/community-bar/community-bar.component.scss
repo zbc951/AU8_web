@@ -1,0 +1,44 @@
+.bar {
+  right: 0;
+  padding: 15px 0;
+  // box-shadow: -1px 1px 7px 1px rgba(0, 81, 138, 0.5);
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 48px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.app {
+  left: 0;
+  width: 60px;
+  height: 205px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 25px 15px;
+  color: #fff;
+  writing-mode: vertical-lr;
+  letter-spacing: 8px;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.bar,
+.app {
+  position: fixed;
+  top: 190px;
+  z-index: 50;
+  border-radius: 35px;
+  // box-shadow: -1px 1px 7px 1px rgba(0, 81, 138, 0.5);
+}

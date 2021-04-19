@@ -1,0 +1,60 @@
+.home {
+  padding: 0 0 50px;
+  background: url(/nt1_web/assets/img/home_bg_1.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.marquee-wrap {
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border-radius: 45px;
+  border: 1px solid #e5f4ff;
+  box-shadow: 0 0 13px 3px #dee1f5;
+}
+
+.type_list {
+  // outline: 1px solid pink;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 668px;
+  margin: 0 -22px 0 0;
+
+  li {
+    position: relative;
+    width: 457px;
+    height: 219px;
+    margin: 0 15px 15px 0;
+    border-radius: 8px;
+    // outline: 1px solid red;
+    order: 10;
+    box-shadow: 0 0 13px 0px #cbd0e3;
+
+    &.sport {
+      order: 1;
+    }
+
+    &.live {
+      order: 2;
+    }
+
+    &.slot {
+      order: 3;
+    }
+
+    &.lottery {
+      order: 4;
+    }
+
+    &.board {
+      order: 6;
+    }
+
+    &.fishing {
+      order: 5;
+    }
+
+    // &:nth-child(3n) {
+    //   // margin: 0 0 34px 0;
+    // }
+  }
+}

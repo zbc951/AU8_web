@@ -1,0 +1,380 @@
+.main {
+  width: 1140px;
+  font-weight: bold;
+}
+
+.current {
+  // outline: 1px solid pink;
+  align-items: center;
+  padding: 0 0 0 43px;
+  position: relative;
+
+  .deposit {
+    margin: 0 10px 0 0;
+  }
+
+  .lv {
+    margin: 17px 0 10px;
+    text-align: left;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #000000;
+  }
+
+  span {
+    margin: 0 30px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #4d4d4d;
+  }
+}
+
+.medal {
+  background: url(/nt1_web/assets/img/medal.png) no-repeat center center;
+  background-size: contain;
+  background-size: 80px 116px;
+  width: 80px;
+  height: 116px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 31px 0 0;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 92px;
+  }
+
+  p {
+    // width: 64px;
+    width: 76px;
+    font-size: 22px;
+    // margin-top: 54px;
+    text-align: center;
+  }
+}
+
+.graph {
+  padding: 21px 20px 0;
+
+  ul {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+  }
+
+  .text {
+    position: relative;
+    margin: 0 0 8px;
+
+    li {
+      flex-shrink: 0;
+      width: 20%;
+      color: #4d4d4d;
+      font-size: 14px;
+      // margin: 0 10px 0 0;
+
+      &:last-child {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+      }
+
+      &:nth-child(2) {
+        margin: 0 0 0 -18px;
+      }
+
+      &:first-child {
+        margin: 0 0 0 5px;
+      }
+    }
+  }
+
+  .bar {
+    height: 13px;
+    background: #f2f2f2;
+    border-radius: 6.5px;
+    overflow: hidden;
+
+    .bar-cnt {
+      width: 1%;
+      height: 100%;
+      border-radius: 6.5px;
+      @extend .g-23;
+    }
+  }
+}
+
+.chk-detail {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.next {
+  padding: 22px 0 20px 22px;
+
+  .next-level {
+    display: flex;
+    margin: 0 0 20px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #4d4d4d;
+
+    i {
+      display: block;
+      width: 20px;
+    }
+  }
+
+  .bar_row {
+    display: flex;
+    align-items: center;
+    margin: 0 0 13px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #4d4d4d;
+
+    .bar {
+      margin: 0 15px;
+    }
+
+    // .chk {
+    //   margin: 0 15px 0 50px;
+    // }
+
+    button {
+      width: 83px;
+      height: 31px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.chk {
+  margin: 0 14px 0 30px;
+  background: #fff;
+  border: 1px solid #cca172;
+  border-radius: 3px;
+  color: #cca172;
+}
+
+.enjoy {
+  // height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 22px 0;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+
+  .enjoy-title {
+    width: 100%;
+    margin: 0 0 31px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 33.3%;
+      height: 70px;
+      margin: 0 0 18px;
+      border-right: 1px solid #e9e9e9;
+
+      &:nth-child(3n) {
+        border: none;
+      }
+
+      .text {
+        margin: 0 0 10px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        color: #4d4d4d;
+      }
+
+      .num {
+        font-size: 28px;
+        letter-spacing: 0px;
+        color: #4a59ed;
+      }
+    }
+  }
+
+  .more {
+    width: 321px;
+    height: 41px;
+    margin: 40px auto 44px;
+  }
+}
+
+.detail {
+  padding: 23px 0 29px;
+
+  .arrow {
+    display: block;
+    width: 9px;
+    height: 18px;
+    margin: 0 13px 0 0;
+    background: url("/nt1_web/assets/img/arrow_b.svg") no-repeat;
+    cursor: pointer;
+  }
+
+  .detail-title {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0;
+    margin: 0 0 13px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0;
+
+    ul {
+      display: flex;
+      width: 1044px;
+      height: 152px;
+      transition: transform 500ms ease 0s;
+
+      li {
+        flex-shrink: 0;
+        margin: 0 9px 0 0;
+
+        .card-li {
+          width: 281px;
+          height: 152px;
+          padding: 0 10px 0 10px;
+          background: url("/nt1_web/assets/img/vip_card.png") no-repeat center
+            center;
+
+          .medal {
+            width: 54px;
+            height: 77px;
+            background-size: 54px 77px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 61px;
+            }
+
+            p {
+              font-size: 16px;
+            }
+          }
+
+          .content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 19px 0 0;
+
+            div {
+              width: 33%;
+            }
+
+            .text {
+              margin: 0 0 8px;
+              text-align: center;
+              font-size: 12px;
+              letter-spacing: 0px;
+              color: #999;
+            }
+
+            .num {
+              text-align: center;
+              font-size: 15px;
+              letter-spacing: 0px;
+              color: #272727;
+            }
+          }
+        }
+
+        .cur {
+          background: url("/nt1_web/assets/img/vip_card_a.png") no-repeat center
+            center;
+
+          .content {
+            .text {
+              color: #aed3ff;
+            }
+
+            .num {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .next_btn {
+      transform: rotate(180deg);
+    }
+  }
+
+  .condition-title {
+    margin: 41px 0 21px 22px;
+    font-size: 17px;
+  }
+
+  .water-title,
+  .discount-title {
+    margin: 15px 0 10px 22px;
+    font-size: 17px;
+  }
+
+  .grid-table {
+    padding: 0 18px 0;
+
+    li {
+      div {
+        padding: 0;
+        text-align: center;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #000000;
+
+        &:nth-child(1) {
+          width: 190px;
+
+          &:not(:nth-child(1)) {
+            width: 130px;
+          }
+        }
+      }
+    }
+  }
+}
+
+hr {
+  width: 100%;
+  margin: 28px 0 0;
+  border: 1px solid #e6e6e6;
+  border-width: 1px 0 0 0;
+}

@@ -1,0 +1,222 @@
+.page-header {
+  height: 220px;
+  background: url("/nt1_web/assets/img/quest/title.png") no-repeat center center;
+
+  & > * {
+    text-align: center;
+    font-size: 61px;
+    line-height: 220px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.page-body {
+  padding-bottom: 46px;
+  padding-top: 28px;
+  // margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 350px;
+}
+
+.page-side {
+  width: 357px;
+  margin-right: 13px;
+}
+
+.nav {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;
+
+  li {
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+
+    &.active {
+      background: #fff9f8;
+
+      &:before {
+        content: "";
+        width: 3px;
+        background: #e11515;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 60px;
+      }
+    }
+
+    & > i {
+      width: 23px;
+      margin-left: 28px;
+    }
+
+    & > span {
+      margin-left: 30px;
+    }
+
+    &.all i {
+      background: url("/nt1_web/assets/img/quest/entire.svg") no-repeat center center;
+    }
+
+    &.limited i {
+      background: url("/nt1_web/assets/img/quest/limited.svg") no-repeat center
+        center;
+    }
+
+    &.newbie i {
+      background: url("/nt1_web/assets/img/quest/newbie.svg") no-repeat center center;
+    }
+
+    &.daily i {
+      background: url("/nt1_web/assets/img/quest/daily.svg") no-repeat center center;
+    }
+
+    &.period i {
+      background: url("/nt1_web/assets/img/quest/period.svg") no-repeat center center;
+    }
+  }
+}
+
+.quest-detail,
+.quest-list {
+  width: 1028px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quest-contain {
+  display: flex;
+  margin-bottom: 19px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & > ul {
+    position: relative;
+    width: 252px;
+    min-height: 185px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 27px;
+  }
+}
+
+.quest-cover {
+  width: 719px;
+  max-height: 296px;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.quest-type {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 30px;
+
+  & > span {
+    width: 89px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(120deg, #2cb6dc 0%, #4bd1f9 100%);
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
+.quest-date {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #808080;
+}
+
+.quest-title {
+  font-size: 29px;
+  font-weight: bold;
+  line-height: 41px;
+  letter-spacing: 3px;
+  margin: 0 0 10px 0;
+  word-break: break-all;
+  color: #000000;
+}
+
+.quest-content {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #808080;
+  margin: 0 0 10px;
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .percent-type {
+    // line-height: 1.8;
+  }
+}
+
+.quest-btn {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin: auto 0 0 0;
+  color: #ffffff;
+
+  &.pleft {
+    justify-content: flex-start;
+  }
+
+  & > button {
+    width: 117px;
+    height: 37px;
+  }
+
+  & > button:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.btn-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#9ddbec 0%, #0282cc 50%, #82aeeb 100%);
+
+  &:active {
+    background: linear-gradient(to top, #9ddbec 0%, #0282cc 50%, #82aeeb 100%);
+  }
+
+  border: 1px solid #0282cc;
+  border-radius: 3px;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: flex-end;
+  // padding-right: 10px;
+  margin-top: 33px;
+}

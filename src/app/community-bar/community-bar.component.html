@@ -1,0 +1,20 @@
+<p class="app clickable g-20">
+  <img src="/nt1_web/assets/img/download.svg" />
+  {{ "CUSTOMER_SERVICE.DOWNLOAD_1" | translate }}
+</p>
+<ul class="bar g-20">
+  <li
+    *ngFor="let item of communitys"
+    (click)="publicService.goService(AppRoutes.COMMON_PROBLEM, 'problem4')"
+  >
+    <img src="{{ item.icon }}" alt="" class="clickable" />
+  </li>
+  <li>
+    <img
+      src="/nt1_web/assets/img/gotop.svg"
+      alt=""
+      (click)="scrollToTop()"
+      class="clickable"
+    />
+  </li>
+</ul>

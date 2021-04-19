@@ -1,0 +1,18 @@
+<app-ad></app-ad>
+<div class="home">
+  <div class="center-wrap">
+    <div class="marquee-wrap">
+      <app-announcement></app-announcement>
+    </div>
+    <ul class="type_list">
+      <li
+        *ngFor="let item of types"
+        [class]="item.type"
+        [routerLink]="item.route"
+        class="clickable"
+      >
+        <img [src]="item.img" [alt]="item.type" />
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="ad">
+  <ul #ad>
+    <li
+      *ngFor="let item of carousels"
+      (click)="clickCarousel(item)"
+      [style.background]="'url(' + item.imageUrl + ')'"
+    ></li>
+  </ul>
+  <div *ngIf="needPagin" class="previous clickable" (click)="prev()">
+    <img src="/nt1_web/assets/img/arrow_w.svg" alt="" class="arrow" />
+  </div>
+  <div *ngIf="needPagin" class="next clickable" (click)="next()">
+    <img src="/nt1_web/assets/img/arrow_w.svg" alt="" class="arrow" />
+  </div>
+  <div class="glow" [class.active]="isGlow"></div>
+</div>

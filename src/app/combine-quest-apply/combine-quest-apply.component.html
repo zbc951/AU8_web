@@ -1,0 +1,161 @@
+<ul class="task">
+  <li *ngFor="let item of questList">
+    <div class="apply-header flex">
+      <div class="flex relative">
+        <p class="txt">{{ item.quest_type_name }}</p>
+        <p class="heading">{{ item.quest_name }}</p>
+        <p
+          class="day-tips"
+          *ngIf="item.period.end"
+          [innerHTML]="
+            'MEMBER_QUEST.day-tips' | translate: { value: item.period.end }
+          "
+        ></p>
+      </div>
+      <div class="flex">
+        <div class="limit-info flex">
+          <p class="title">{{ "MEMBER_QUEST.LIMIT" | translate }}</p>
+          <p class="txt">
+            <span class="now">{{ item.now_times }}</span>
+            <span class="split">/</span>
+            <span>{{ item.limit_times }}</span>
+          </p>
+        </div>
+        <div class="flex">
+          <!-- (click)="applyQuest(item)" -->
+          <button
+            class="apply_btn"
+            [disabled]="!item.can_reward"
+            appThrottleBtn
+            (action)="applyQuest(item)"
+          >
+            {{ "MEMBER_QUEST.APPLY" | translate }}
+          </button>
+          <button
+            class="detail_btn"
+            [disabled]="item.info_display == 0"
+            (click)="getQuestDetail(item)"
+          >
+            {{ "MEMBER_QUEST.DETAIL" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="apply-cnt">
+      <ul class="constant flex">
+        <li>
+          <p class="title">{{ "MEMBER_QUEST.PERIOD" | translate }}</p>
+          <p class="txt">
+            <ng-container *ngIf="item.start_at || item.end_at; else nolimit">
+              {{ item.start_at }} ~ {{ item.end_at }}
+            </ng-container>
+            <ng-template #nolimit>
+              {{ "MEMBER_QUEST.NO_LIMIT" | translate }}
+            </ng-template>
+          </p>
+        </li>
+        <li *ngIf="item.period">
+          <p class="title">{{ "MEMBER_QUEST.period" | translate }}</p>
+          <p class="txt">{{ item.period.name }}</p>
+        </li>
+        <li>
+          <p class="title">{{ "MEMBER_QUEST.NOW_BETAMOUNT" | translate }}</p>
+          <p class="txt current">{{ item.valid_amount }}</p>
+        </li>
+      </ul>
+      <ul class="conditions flex">
+        <li *ngIf="item.bet_amount">
+          <p class="title">{{ "MEMBER_QUEST.bet_amount" | translate }}</p>
+          <p class="txt">{{ item.bet_amount | floatDisplay }}</p>
+        </li>
+        <li *ngIf="item.allowedReward">
+          <p class="title">{{ "MEMBER_QUEST.allowedReward" | translate }}</p>
+          <p class="txt">{{ item.allowedReward | floatDisplay }}</p>
+        </li>
+        <li *ngIf="item.percent">
+          <p class="title">{{ "MEMBER_QUEST.PERCENT" | translate }}</p>
+          <p class="txt">{{ item.percent | percent: "0.0-2" }}</p>
+        </li>
+        <li *ngIf="item.review_deposit">
+          <p class="title">{{ "MEMBER_QUEST.review_deposit" | translate }}</p>
+          <p class="txt">{{ item.review_deposit }}</p>
+        </li>
+        <li *ngIf="item.reward">
+          <p class="title">{{ "MEMBER_QUEST.REWARD" | translate }}</p>
+          <p class="txt">{{ item.reward | floatDisplay }}</p>
+        </li>
+        <li *ngIf="item['report-total']">
+          <p class="title">{{ "MEMBER_QUEST.report_total" | translate }}</p>
+          <p class="txt">{{ item["report-total"] | floatDisplay }}</p>
+        </li>
+
+        <!-- <li *ngFor="let condition of item.conditions" style="outline: 1px solid pink;"> -->
+        <li *ngFor="let condition of item.conditions">
+          <p class="title">{{ condition.name }}</p>
+          <p class="txt" *ngIf="condition.code != 'birthday'; else birth">
+            {{ condition.value }}
+          </p>
+          <ng-template #birth>
+            <p class="txt" *ngIf="item.method == 'before'">
+              {{ "MEMBER_QUEST.birth_before" | translate }}
+            </p>
+            <p class="txt" *ngIf="item.method == 'after'">
+              {{ "MEMBER_QUEST.birth_after" | translate }}
+            </p>
+          </ng-template>
+        </li>
+      </ul>
+      <div *ngIf="item.stages" class="stages-table">
+        <ul class="flex" *ngFor="let group of item.stagesGroup">
+          <li class="header" #myli>
+            <p>
+              {{
+                item.method == "after"
+                  ? ("MEMBER_QUEST.STAGETABLE.REACH" | translate)
+                  : ("MEMBER_QUEST.STAGETABLE.REACH_BEFORE" | translate)
+              }}
+            </p>
+            <p>{{ "MEMBER_QUEST.STAGETABLE.GAIN" | translate }}</p>
+            <p>{{ "MEMBER_QUEST.conditions" | translate }}</p>
+          </li>
+          <li *ngFor="let stage of group; let idx = index">
+            <p class="target">{{ stage.amount }}</p>
+            <p class="gain" *ngIf="stage.reward">{{ stage.reward }}</p>
+            <p class="gain" *ngIf="stage.percent">
+              {{
+                stage.type == "before"
+                  ? ("MEMBER_QUEST.extra9_s" | translate)
+                  : ("MEMBER_QUEST.AMOUNT" | translate)
+              }}
+              {{ stage.percent }}%
+              <!-- {{ "MEMBER_QUEST.AMOUNT" | translate }}{{ stage.percent }}% -->
+            </p>
+            <ul class="step-conditions">
+              <li *ngFor="let conditions of stage.condition">
+                <ng-container *ngIf="conditions.value">
+                  {{ conditions.name }} : {{ conditions.value }}
+                </ng-container>
+              </li>
+            </ul>
+            <div
+              class="reach"
+              [style.height.px]="myli.clientHeight + 30"
+              *ngIf="item.reach == stage.idx"
+            >
+              {{ "MEMBER_QUEST.STAGETABLE.CANGAIN" | translate }}
+            </div>
+            <div
+              class="cheerup"
+              *ngIf="item.stage_index && stage.idx == item.reach + 1"
+              [innerHTML]="
+                'MEMBER_QUEST.STAGETABLE.CHEERUP'
+                  | translate: { value: item.shift }
+              "
+            ></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,398 @@
+<div class="help_page">
+  <div class="cnt flex">
+    <div>
+      <ul class="nav">
+        <li
+          class="title"
+          [class.active]="nowNav == 0"
+          (click)="goNav(0); goCnt('teach1')"
+        >
+          <p class="flex"><i class="bulb"></i>{{ "NAV.NEWBIE" | translate }}</p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li [class.active]="nowCnt == 'teach1'" (click)="goCnt('teach1')">
+              {{ "NEWBIE.OPEN.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'teach2'" (click)="goCnt('teach2')">
+              {{ "NEWBIE.DEPOSIT.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'teach3'" (click)="goCnt('teach3')">
+              {{ "NEWBIE.WITHDRAW.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'teach4'" (click)="goCnt('teach4')">
+              {{ "NEWBIE.TRANSFER.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'teach5'" (click)="goCnt('teach5')">
+              {{ "NEWBIE.PREFERENTIAL.TITLE" | translate }}
+            </li>
+          </ul>
+        </li>
+        <li
+          class="title"
+          [class.active]="nowNav == 1"
+          (click)="goNav(1); goCnt('problem1')"
+        >
+          <p class="flex">
+            <i class="problem"></i>{{ "COMMON.TITLE" | translate }}
+          </p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li
+              [class.active]="nowCnt == 'problem1'"
+              (click)="goCnt('problem1')"
+            >
+              {{ "COMMON.TITLE" | translate }}
+            </li>
+            <li
+              [class.active]="nowCnt == 'problem3'"
+              (click)="goCnt('problem3')"
+            >
+              {{ "COMMON.REMOTE.TITLE" | translate }}
+            </li>
+            <li
+              [class.active]="nowCnt == 'problem4'"
+              (click)="goCnt('problem4')"
+            >
+              {{ "COMMON.CONTACT.TITLE" | translate }}
+            </li>
+          </ul>
+        </li>
+        <li
+          class="title"
+          [class.active]="nowNav == 2"
+          (click)="goNav(2); goCnt('about1')"
+        >
+          <p class="flex">
+            <i class="auboutus"></i>{{ "ABOUT.TITLE" | translate }}
+          </p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li [class.active]="nowCnt == 'about1'" (click)="goCnt('about1')">
+              {{ "ABOUT.TERMS.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'about2'" (click)="goCnt('about2')">
+              {{ "ABOUT.PRIVACY.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'about3'" (click)="goCnt('about3')">
+              {{ "ABOUT.DUTY.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'about4'" (click)="goCnt('about4')">
+              {{ "ABOUT.SECURE.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'about5'" (click)="goCnt('about5')">
+              {{ "ABOUT.responsibility.TITLE" | translate }}
+            </li>
+            <li
+              [class.active]="nowCnt == 'about-license'"
+              (click)="goCnt('about-license')"
+            >
+              {{ "ABOUT.license.TITLE" | translate }}
+            </li>
+            <li
+              [class.active]="nowCnt == 'about-depositWithdraw'"
+              (click)="goCnt('about-depositWithdraw')"
+            >
+              {{ "ABOUT.depositWithdraw.TITLE" | translate }}
+            </li>
+            <li [class.active]="nowCnt == 'about6'" (click)="goCnt('about6')">
+              {{ "ABOUT.rule.TITLE" | translate }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- 新手幫助 -->
+    <div class="help-cnt">
+      <div *ngIf="nowCnt == 'teach1'">
+        <h2 class="orange">{{ "NEWBIE.OPEN.HOW.TITLE" | translate }}？</h2>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.HOW.TB_L1' | translate"></span>
+        </p>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.HOW.TB_L2' | translate"></span>
+        </p>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.HOW.TB_L3' | translate"></span>
+          <a (click)="readPolicy()">{{
+            "NEWBIE.OPEN.HOW.TB_L3_2" | translate
+          }}</a
+          >。<br />
+        </p>
+        <h2 class="orange">
+          {{ "NEWBIE.OPEN.Guarantee.TITLE" | translate }}？
+        </h2>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.Guarantee.L1' | translate"></span>
+        </p>
+        <h2 class="orange">
+          {{ "NEWBIE.OPEN.FORGET_ACCOUNT.TITLE" | translate }}？
+        </h2>
+        <p>
+          <span
+            [innerHTML]="'NEWBIE.OPEN.FORGET_ACCOUNT.L1' | translate"
+          ></span>
+        </p>
+        <h2 class="orange">
+          {{ "NEWBIE.OPEN.FORGET_PWD.TITLE" | translate }}？
+        </h2>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.FORGET_PWD.TB_L1' | translate"></span>
+        </p>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.FORGET_PWD.TB_L2' | translate"></span>
+        </p>
+        <h2 class="orange">
+          {{ "NEWBIE.OPEN.CHANGE_PWD.TITLE" | translate }}？
+        </h2>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.CHANGE_PWD.TB_L1' | translate"></span>
+        </p>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.CHANGE_PWD.TB_L2' | translate"></span>
+        </p>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.CHANGE_PWD.TB_L3' | translate"></span>
+        </p>
+        <h2 class="orange">{{ "NEWBIE.OPEN.LOCKED.TITLE" | translate }}？</h2>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.LOCKED.TB_L1' | translate"></span>
+        </p>
+        <h2 class="orange">
+          {{ "NEWBIE.OPEN.DEL_ACCOUNT.TITLE" | translate }}？
+        </h2>
+        <p>
+          <span [innerHTML]="'NEWBIE.OPEN.DEL_ACCOUNT.L1' | translate"></span>
+        </p>
+        <h2 class="orange">
+          {{ "NEWBIE.OPEN.CHANGE_INFO.TITLE" | translate }}？
+        </h2>
+        <p>
+          <span
+            [innerHTML]="'NEWBIE.OPEN.CHANGE_INFO.TB_L1' | translate"
+          ></span>
+        </p>
+      </div>
+
+      <!-- 存款 -->
+      <div *ngIf="nowCnt == 'teach2'">
+        <h2 class="online">{{ "NEWBIE.DEPOSIT.HOW.TITLE" | translate }}?</h2>
+        <span [innerHTML]="'NEWBIE.DEPOSIT.HOW.L1' | translate"></span>
+        <ul class="teach2">
+          <li>
+            <div
+              class="item flex"
+              [class.active]="serial == true"
+              (click)="serial = !serial"
+            >
+              <p>{{ "NEWBIE.DEPOSIT.serial.TITLE" | translate }}</p>
+              <i></i>
+            </div>
+            <div class="online-cnt" *ngIf="serial == true">
+              <img
+                class="online01"
+                src="/nt1_web/assets/img/demo/online01.png"
+                alt=""
+              />
+            </div>
+          </li>
+          <li>
+            <div
+              class="item flex"
+              [class.active]="alipay == true"
+              (click)="alipay = !alipay"
+            >
+              <p>{{ "NEWBIE.DEPOSIT.alipay.TITLE" | translate }}</p>
+              <i></i>
+            </div>
+            <div class="online-cnt" *ngIf="alipay == true">
+              <img
+                class="online01"
+                src="/nt1_web/assets/img/demo/online01.png"
+                alt=""
+              />
+            </div>
+          </li>
+          <li>
+            <div
+              class="item flex"
+              [class.active]="unionpay == true"
+              (click)="unionpay = !unionpay"
+            >
+              <p>{{ "NEWBIE.DEPOSIT.unionpay.TITLE" | translate }}</p>
+              <i></i>
+            </div>
+            <div class="online-cnt" *ngIf="unionpay == true">
+              <img
+                class="online01"
+                src="/nt1_web/assets/img/demo/online01.png"
+                alt=""
+              />
+            </div>
+          </li>
+          <li>
+            <div
+              class="item flex"
+              [class.active]="wanin == true"
+              (click)="wanin = !wanin"
+            >
+              <p>{{ "NEWBIE.DEPOSIT.wanin.TITLE" | translate }}</p>
+              <i></i>
+            </div>
+            <div class="online-cnt" *ngIf="wanin == true">
+              <img
+                class="online01"
+                src="/nt1_web/assets/img/demo/online01.png"
+                alt=""
+              />
+            </div>
+          </li>
+          <li>
+            <div
+              class="item flex"
+              [class.active]="wechat == true"
+              (click)="wechat = !wechat"
+            >
+              <p>{{ "NEWBIE.DEPOSIT.wechat.TITLE" | translate }}</p>
+              <i></i>
+            </div>
+            <div class="online-cnt" *ngIf="wechat == true">
+              <img
+                class="online01"
+                src="/nt1_web/assets/img/demo/online01.png"
+                alt=""
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 提款 -->
+      <div class="teach3" *ngIf="nowCnt == 'teach3'">
+        <h2 class="orange">{{ "NEWBIE.WITHDRAW.HOW.TITLE" | translate }}?</h2>
+        <span [innerHTML]="'NEWBIE.WITHDRAW.HOW.P' | translate"></span>
+        <img src="/nt1_web/assets/img/demo/withdraw.png" alt="" />
+        <p [innerHTML]="'NEWBIE.WITHDRAW.HOW.L1' | translate"></p>
+        <p [innerHTML]="'NEWBIE.WITHDRAW.HOW.L2' | translate"></p>
+        <h2 class="orange">{{ "NEWBIE.WITHDRAW.COMMON.TITLE" | translate }}</h2>
+        <p>Q:{{ "NEWBIE.WITHDRAW.COMMON.Q" | translate }}？</p>
+        <p>A:{{ "NEWBIE.WITHDRAW.COMMON.A" | translate }}。</p>
+        <h2 class="orange">
+          {{ "NEWBIE.WITHDRAW.NOTICE.TITLE" | translate }}？
+        </h2>
+        <p>1. {{ "NEWBIE.WITHDRAW.NOTICE.L1" | translate }}</p>
+        <p>2. {{ "NEWBIE.WITHDRAW.NOTICE.L2" | translate }}</p>
+        <p>3. {{ "NEWBIE.WITHDRAW.NOTICE.L3" | translate }}</p>
+        <p>4. {{ "NEWBIE.WITHDRAW.NOTICE.L4" | translate }}</p>
+        <p>5. {{ "NEWBIE.WITHDRAW.NOTICE.L5" | translate }}</p>
+        <h2 class="orange">
+          {{ "NEWBIE.WITHDRAW.CANNOT.TITLE" | translate }}？
+        </h2>
+        <p>{{ "NEWBIE.WITHDRAW.CANNOT.L1" | translate }}</p>
+        <h2 class="orange">
+          {{ "NEWBIE.WITHDRAW.MULTI.TITLE" | translate }}？
+        </h2>
+        <p>{{ "NEWBIE.WITHDRAW.MULTI.L1" | translate }}</p>
+        <h2 class="orange">
+          {{ "NEWBIE.WITHDRAW.APPLY.TITLE" | translate }} ？
+        </h2>
+        <p>{{ "NEWBIE.WITHDRAW.APPLY.L1" | translate }}</p>
+      </div>
+      <!-- 轉帳 -->
+      <div class="teach4" *ngIf="nowCnt == 'teach4'">
+        <h2 class="orange">{{ "NEWBIE.TRANSFER.Q.TITLE" | translate }}?</h2>
+        <p>{{ "NEWBIE.TRANSFER.Q.H2" | translate }}</p>
+        <img src="/nt1_web/assets/img/demo/transfer.png" alt="" />
+        <h2>{{ "NEWBIE.TRANSFER.COMMON.TITLE" | translate }}</h2>
+        <p [innerHTML]="'NEWBIE.TRANSFER.COMMON.Q1' | translate"></p>
+        <p [innerHTML]="'NEWBIE.TRANSFER.COMMON.A1' | translate"></p>
+        <p [innerHTML]="'NEWBIE.TRANSFER.COMMON.Q2' | translate"></p>
+        <p [innerHTML]="'NEWBIE.TRANSFER.COMMON.A2' | translate"></p>
+      </div>
+      <!-- 優惠 -->
+      <div *ngIf="nowCnt == 'teach5'">
+        <h2 class="orange">{{ "NEWBIE.PREFERENTIAL.H1" | translate }}？</h2>
+        <p>{{ "NEWBIE.PREFERENTIAL.P1" | translate }}</p>
+
+        <h2 class="orange">{{ "NEWBIE.PREFERENTIAL.H2" | translate }}？</h2>
+        <p>{{ "NEWBIE.PREFERENTIAL.P2" | translate }}</p>
+      </div>
+
+      <!-- 常見問題 -->
+      <div class="problem1" *ngIf="nowCnt == 'problem1'">
+        <span [innerHTML]="'COMMON.answer' | translate"></span>
+      </div>
+      <div class="problem3" *ngIf="nowCnt == 'problem3'">
+        <h2>{{ "COMMON.REMOTE.TITLE" | translate }}</h2>
+        <h3 [innerHTML]="'COMMON.REMOTE.H1' | translate"></h3>
+        <!-- <h3>
+                    <span class="orange">步骤一 : </span>前往
+                    <a href="https://www.teamviewer.com" target="_blank">Team-Viewer</a> 官网,下载远端协助网址。
+                <//h3>> -->
+        <div>
+          <p>{{ "COMMON.REMOTE.P1" | translate }}</p>
+          <img src="/nt1_web/assets/img/demo/tv.png" alt="" />
+        </div>
+
+        <p [innerHTML]="'COMMON.REMOTE.H2' | translate"></p>
+        <!-- <h3>
+                    <span class="orange">步骤二 : </span>进行安装，安装教学流程可参照,<a
+                        href="https://www.teamviewer.com/en/solutions/remote-support/#products"
+                        >远端协助程式安装教学。</a
+                    >
+                </h3> -->
+        <p [innerHTML]="'COMMON.REMOTE.H3' | translate"></p>
+        <!-- <h3>
+                    <span class="orange">步骤三 : </span
+                    >将您的【远端协助ID】与【密码】，提交给客服人员即可为您进行远端协助服务。
+                </h3> -->
+        <img src="/nt1_web/assets/img/demo/remote.png" alt="" />
+        <h3>{{ "COMMON.REMOTE.TITLE" | translate }}</h3>
+        <p [innerHTML]="'COMMON.REMOTE.l1' | translate"></p>
+        <p [innerHTML]="'COMMON.REMOTE.l2' | translate"></p>
+        <p [innerHTML]="'COMMON.REMOTE.l3' | translate"></p>
+      </div>
+      <div class="problem4" *ngIf="nowCnt == 'problem4'">
+        <h2>{{ "COMMON.CONTACT.online" | translate }}</h2>
+        <span [innerHTML]="'COMMON.CONTACT.P' | translate"></span>
+      </div>
+      <div
+        *ngIf="nowCnt == 'about1'"
+        [innerHTML]="'ABOUT.TERMS.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about2'"
+        [innerHTML]="'ABOUT.PRIVACY.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about3'"
+        [innerHTML]="'ABOUT.DUTY.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about4'"
+        [innerHTML]="'ABOUT.SECURE.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about5'"
+        [innerHTML]="'ABOUT.responsibility.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about6'"
+        [innerHTML]="'ABOUT.rule.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about-license'"
+        [innerHTML]="'ABOUT.license.CNT' | translate"
+      ></div>
+      <div
+        *ngIf="nowCnt == 'about-depositWithdraw'"
+        [innerHTML]="'ABOUT.depositWithdraw.CNT' | translate"
+      ></div>
+    </div>
+  </div>
+</div>
