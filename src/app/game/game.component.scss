@@ -37,13 +37,15 @@
       display: flex;
       align-items: flex-end;
       line-height: 1;
-      color: #3d4cce;
+      background: linear-gradient(to bottom, #E0CB89, #A66E33);
+      -webkit-background-clip: text;
       // font-weight: bold;
     }
 
     .title_big {
       letter-spacing: 6px;
       font-size: 62px;
+      color: transparent;
     }
 
     .title_small {
@@ -51,6 +53,7 @@
       font-size: 42px;
       padding-bottom: 5px;
       margin: 0 0 0 16px;
+      color: transparent;
     }
 
     .discription {

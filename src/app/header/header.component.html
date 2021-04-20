@@ -60,12 +60,12 @@
                 placeholder="{{ 'LOGIN.PWD' | translate }}"
                 formControlName="password"
               />
-              <i class="question clickable" (click)="goForget()"></i>
+              <i class="question clickable"></i>
             </div>
             <button class="g-2" [disabled]="isMaintain">
               {{ "LOGIN.TITLE" | translate }}
             </button>
-            <button class="signupBtn" [disabled]="isMaintain">
+            <button class="signupBtn" [disabled]="isMaintain" (click)="openRegister()">
               <span></span>
               註冊
             </button>
@@ -74,7 +74,7 @@
         <li
           class="register clickable"
           [class.disabled]="isMaintain"
-          (click)="openRegister()"
+          (click)="goForget()"
         >
           <i class="forget"></i>
           <!-- {{ "REGISTER.TITLE" | translate }} -->

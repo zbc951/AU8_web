@@ -144,9 +144,9 @@ ejs-datepicker {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#f1d7b7 0%, #cca172 50%, #f1c999 100%);
+  background: linear-gradient(to top, #fae0af 0%, #d7b676 50%, #f8fbc0);
 
-  &:active {
+  &:hover,&:active,&.active {
     background: linear-gradient(to top, #f1d7b7 0%, #cca172 50%, #f1c999 100%);
   }
 

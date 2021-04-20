@@ -26,6 +26,10 @@
     box-shadow: 0px 0px 5px 2px #cccac4;
     margin-bottom: 5px;
 
+    &:hover,&:active,&.active {
+      filter: brightness(1.2);
+    }
+
     img {
       width: 30px;
       height: 30px;

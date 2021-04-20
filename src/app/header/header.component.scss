@@ -1,6 +1,5 @@
 header {
-  background: url('../../assets/img/new/headerBG.png') no-repeat;
-  background-size: 100%;
+  background: url('../../assets/img/new/headerBG.png') no-repeat top center;
   font-weight: bold;
   box-shadow: 0 0 13px 2px #dbdef4;
   position: relative;
@@ -70,7 +69,7 @@ option {
     }
 
     &.clickable:hover {
-      background-color: #0068ff;
+      background-color: #866748;
     }
 
     & > .forget {
@@ -220,6 +219,10 @@ option {
       margin-left: 8px;
       padding: 0px 9px 0px 8px;
 
+      &:hover,&:active,&.active {
+        background: linear-gradient(to bottom,#2a8a4b 0%,#6dd191 75%,#54a874 99%);
+      }
+
       span {
         display: inline-block;
         width: 12px;
@@ -231,8 +234,8 @@ option {
     }
                                                                                                                                                                                        
 
-    &:active {
-      opacity: 0.8;
+    &:hover,&:active,&.active {
+      background: linear-gradient(to bottom,#ddb78c 0%,#ffe1a8 70%,#fff8ba 75%,#f0d9a3 95%);
     }
   }
 }
@@ -268,6 +271,7 @@ option {
 
     &:hover,&:active,&.active {
       border-color: #c7a16e;
+      color: #dcb160;
     }
 
     &.home,

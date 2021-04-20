@@ -12,8 +12,8 @@
 // common-alert
 // gold
 .g-2 {
-  background: linear-gradient(#f1d7b7 0%, #cca172 50%, #f1c999 100%);
-  &:active {
+  background: linear-gradient(to top, #fae0af 0%, #d7b676 50%, #f8fbc0);
+  &:hover,&:active,&.active {
     background: linear-gradient(to top, #f1d7b7 0%, #cca172 50%, #f1c999 100%);
   }
 }
@@ -83,7 +83,7 @@
 
 // common-alert
 .g-21 {
-  background: linear-gradient(135deg, #7c4dff, #887aff);
+  background: linear-gradient(to left, #E0CB89, #de9649);
 }
 
 // tabs
