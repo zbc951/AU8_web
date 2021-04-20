@@ -241,8 +241,11 @@ option {
 }
 
 .logo {
-  height: 43px;
-  align-self: center;
+  width: 155px;
+  height: 68px;
+  background: url('../../assets/img/new/au8_logo_0420.png') no-repeat;
+  background-size: 100%;
+  margin-top: 12px;
 }
 
 .game-nav {
